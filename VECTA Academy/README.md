@@ -41,3 +41,5 @@ Open `index.html` in any browser.
 4. Click "Add new site" > "Import an existing project".
 5. Connect your GitHub repository.
 6. Deploy the website.
+# Screen Mode
+It works according to the screen wraps like for mobile it works as mobile screen mode and for tablet it works as tablet screen mode 
