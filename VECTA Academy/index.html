@@ -1,0 +1,275 @@
+
+<!-- ============== FILE: index.html ============== -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VECTA ACADEMY | Grow Your Knowledge Naturally</title>
+<meta name="description" content="VECTA ACADEMY offers quality online courses in programming, design, data science and more. Join thousands of learners today.">
+<meta name="keywords" content="VECTA ACADEMY, online courses, learning platform, programming courses, web development, data science, education">
+<style>
+  :root{
+    --forest:#2d5016;
+    --forest-light:#4a7c2e;
+    --sage:#a8c09a;
+    --sage-light:#d4e4cc;
+    --earth:#8b6f47;
+    --earth-dark:#6b5535;
+    --terracotta:#c87941;
+    --cream:#faf7f0;
+    --cream-dark:#f0ead6;
+    --bark:#3d2817;
+    --moss:#556b2f;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;font-family:'Georgia','Times New Roman',serif}
+  body{background:var(--cream);color:var(--bark);line-height:1.7}
+  a{text-decoration:none;color:inherit}
+
+  header{background:var(--forest);color:var(--cream);padding:15px 30px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:100;box-shadow:0 2px 8px rgba(45,80,22,.3)}
+  .logo{font-size:1.4rem;font-weight:bold;color:var(--sage);letter-spacing:1px;font-family:'Georgia',serif}
+  .logo span{color:var(--cream)}
+  nav ul{display:flex;list-style:none;gap:22px}
+  nav ul li a{font-weight:500;transition:color .2s;font-size:.95rem}
+  nav ul li a:hover{color:var(--sage)}
+  .menu-toggle{display:none;background:none;border:none;color:var(--cream);font-size:1.6rem;cursor:pointer}
+
+  .hero{position:relative;height:520px;overflow:hidden}
+  .hero img{width:100%;height:100%;object-fit:cover;filter:brightness(.65)}
+  .hero-overlay{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;color:var(--cream);padding:0 20px}
+  .hero-overlay h1{font-size:3rem;margin-bottom:15px;text-shadow:2px 2px 8px rgba(0,0,0,.5);max-width:800px}
+  .hero-overlay p{font-size:1.15rem;max-width:700px;margin-bottom:25px;opacity:.95;text-shadow:1px 1px 4px rgba(0,0,0,.5)}
+  .btn{display:inline-block;background:var(--terracotta);color:var(--cream);padding:13px 32px;border-radius:6px;font-weight:bold;transition:transform .2s,background .2s;border:none;cursor:pointer;font-size:1rem;font-family:'Georgia',serif}
+  .btn:hover{background:var(--earth-dark);transform:translateY(-2px)}
+  .btn-outline{background:transparent;border:2px solid var(--cream);margin-left:10px}
+  .btn-outline:hover{background:var(--cream);color:var(--forest)}
+
+  section{padding:70px 30px;max-width:1200px;margin:0 auto}
+  .section-title{text-align:center;margin-bottom:45px}
+  .section-title h2{font-size:2.2rem;color:var(--forest);margin-bottom:10px;font-family:'Georgia',serif}
+  .section-title p{color:var(--earth);font-size:1.05rem}
+  .section-title::after{content:'';display:block;width:60px;height:3px;background:var(--terracotta);margin:12px auto 0}
+
+  .highlights{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:25px}
+  .highlight-card{background:var(--cream-dark);padding:32px 22px;border-radius:12px;text-align:center;border-top:4px solid var(--forest-light);transition:transform .3s,box-shadow .3s;box-shadow:0 4px 12px rgba(61,40,23,.08)}
+  .highlight-card:hover{transform:translateY(-5px);box-shadow:0 10px 25px rgba(61,40,23,.15)}
+  .highlight-card .icon{font-size:2.5rem;margin-bottom:12px}
+  .highlight-card h3{color:var(--forest);margin-bottom:8px;font-size:1.15rem}
+  .highlight-card p{color:var(--earth-dark);font-size:.95rem}
+
+  .courses-preview{background:var(--cream-dark);max-width:100%}
+  .course-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:24px;max-width:1200px;margin:0 auto}
+  .course-card{background:var(--cream-dark);border-radius:14px;overflow:hidden;box-shadow:0 4px 12px rgba(61,40,23,.1);transition:transform .3s,box-shadow .3s}
+  .course-card:hover{transform:translateY(-6px);box-shadow:0 12px 28px rgba(61,40,23,.18)}
+  .course-card .thumb{height:200px;background-size:cover;background-position:center;position:relative}
+  .course-card .thumb::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(45,80,22,.35) 100%)}
+  .course-card .info{padding:22px}
+  .course-card h3{color:var(--forest);margin-bottom:6px;font-size:1.2rem}
+  .course-card p{color:var(--earth-dark);font-size:.92rem;margin-bottom:12px}
+  .course-card .price{color:var(--terracotta);font-weight:bold;font-size:1.15rem}
+
+  .cta{background:linear-gradient(135deg,var(--forest),var(--moss));color:var(--cream);text-align:center;padding:70px 30px;max-width:100%}
+  .cta h2{font-size:2rem;margin-bottom:12px;font-family:'Georgia',serif}
+  .cta p{margin-bottom:25px;opacity:.95;font-size:1.05rem}
+
+  footer{background:var(--bark);color:var(--cream-dark);padding:45px 30px 20px;text-align:center}
+  footer h4{color:var(--sage);margin-bottom:12px;font-size:1.15rem}
+  .footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:30px;max-width:1100px;margin:0 auto 25px;text-align:left}
+  .footer-grid p,.footer-grid a{color:var(--cream-dark);font-size:.92rem;line-height:1.9}
+  .footer-grid a:hover{color:var(--sage)}
+  .copyright{border-top:1px solid var(--earth-dark);padding-top:18px;font-size:.85rem;color:var(--sage)}
+
+@media (max-width:1024px){
+  /* Mobile/tablet navigation */
+  .menu-toggle{
+    display:block;
+  }
+
+  nav ul{
+    display:none;
+    flex-direction:column;
+    position:absolute;
+    top:60px;
+    right:0;
+    background:var(--forest);
+    width:240px;
+    padding:20px;
+    gap:15px;
+    box-shadow:-2px 2px 10px rgba(0,0,0,.3);
+  }
+
+  nav ul.show{
+    display:flex;
+  }
+
+  /* Hero and sections */
+  .hero{
+    height:420px;
+  }
+
+  .hero-overlay h1{
+    font-size:2.2rem;
+  }
+
+  section{
+    padding:50px 20px;
+  }
+
+  .btn-outline{
+    margin-left:0;
+    margin-top:10px;
+  }
+
+  /* Courses */
+  .course-card .thumb{
+    height:170px;
+  }
+}
+
+/* Extra refinement for small mobile screens */
+@media (max-width:768px){
+  .hero{
+    height:400px;
+  }
+
+  .hero-overlay h1{
+    font-size:2rem;
+  }
+
+  section{
+    padding:45px 18px;
+  }
+
+  .course-card .thumb{
+    height:160px;
+  }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <a href="index.html" class="logo">🌿 VECTA <span>ACADEMY</span></a>
+  <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+  <nav>
+    <ul id="navMenu">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="courses.html">Courses</a></li>
+      <li><a href="announcement.html">Announcement</a></li>
+      <li><a href="registration.html">Registration</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="hero">
+  <img src="https://image.qwenlm.ai/public_source/b63162a8-5914-4972-a6ab-262af50b616a/1b5545d31-c46a-485a-b1ed-5477ce9074e2.png" alt="Students learning together outdoors under a tree in a campus garden">
+  <div class="hero-overlay">
+    <h1>Grow Your Knowledge Naturally</h1>
+    <p>VECTA ACADEMY nurtures curious minds with industry-relevant courses taught by expert instructors in a warm, organic learning environment.</p>
+    <div>
+      <a href="courses.html" class="btn">Explore Courses</a>
+      <a href="registration.html" class="btn btn-outline">Enroll Now</a>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="section-title">
+    <h2>Why Choose VECTA ACADEMY?</h2>
+    <p>Rooted in excellence, growing with you every step</p>
+  </div>
+  <div class="highlights">
+    <div class="highlight-card">
+      <div class="icon">🎓</div>
+      <h3>Expert Faculty</h3>
+      <p>Learn from experienced industry professionals and certified trainers who mentor like gardeners nurture seeds.</p>
+    </div>
+    <div class="highlight-card">
+      <div class="icon">📚</div>
+      <h3>Quality Content</h3>
+      <p>Well-structured study material, videos, and hands-on projects that help your knowledge take root and flourish.</p>
+    </div>
+    <div class="highlight-card">
+      <div class="icon">🌐</div>
+      <h3>Learn Anywhere</h3>
+      <p>Access courses 24/7 from any device — mobile, tablet, or desktop. Learning blooms wherever you are.</p>
+    </div>
+    <div class="highlight-card">
+      <div class="icon">🏆</div>
+      <h3>Certification</h3>
+      <p>Earn recognized certificates upon successful course completion to showcase your growth to the world.</p>
+    </div>
+  </div>
+</section>
+
+<section class="courses-preview">
+  <div class="section-title">
+    <h2>Popular Courses</h2>
+    <p>Seeds of knowledge waiting to be planted in your mind</p>
+  </div>
+  <div class="course-grid">
+    <div class="course-card">
+      <div class="thumb" style="background-image:url('https://image.qwenlm.ai/public_source/b63162a8-5914-4972-a6ab-262af50b616a/1df2da871-87fb-4773-a3b3-bad8ac7b5708.png')" role="img" aria-label="Laptop with code on a wooden desk beside potted ferns and herbal tea"></div>
+      <div class="info">
+        <h3>Web Development</h3>
+        <p>HTML, CSS, JavaScript and modern frameworks.</p>
+        <span class="price">₹4,999</span>
+      </div>
+    </div>
+    <div class="course-card">
+      <div class="thumb" style="background-image:url('https://image.qwenlm.ai/public_source/b63162a8-5914-4972-a6ab-262af50b616a/1279eaad5-2e13-4d25-9c55-5e5fb7b3c987.png')" role="img" aria-label="Laptop showing data charts on a wooden table with plants and notebook"></div>
+      <div class="info">
+        <h3>Data Science</h3>
+        <p>Python, statistics, ML and data visualization.</p>
+        <span class="price">₹6,999</span>
+      </div>
+    </div>
+    <div class="course-card">
+      <div class="thumb" style="background-image:url('https://image.qwenlm.ai/public_source/b63162a8-5914-4972-a6ab-262af50b616a/1e7d97a32-d5cb-435e-980b-bfd833a3218f.png')" role="img" aria-label="Sketchbook, watercolor palette and tablet with floral design on rustic wooden table"></div>
+      <div class="info">
+        <h3>Graphic Design</h3>
+        <p>Photoshop, Illustrator, and UI/UX fundamentals.</p>
+        <span class="price">₹3,499</span>
+      </div>
+    </div>
+  </div>
+  <div style="text-align:center;margin-top:35px">
+    <a href="courses.html" class="btn">View All Courses</a>
+  </div>
+</section>
+
+<section class="cta">
+  <h2>Ready to start growing?</h2>
+  <p>Join thousands of students who have blossomed their careers with VECTA ACADEMY.</p>
+  <a href="registration.html" class="btn">Register Now</a>
+</section>
+
+<footer>
+  <div class="footer-grid">
+    <div>
+      <h4>🌿 VECTA ACADEMY</h4>
+      <p>Learn technology - Feel the Nature</p>
+    </div>
+    <div>
+      <h4>Quick Links</h4>
+      <p><a href="courses.html">Courses</a> | <a href="announcement.html">Announcement</a> | <a href="registration.html">Register</a> | <a href="contact.html">Contact</a></p>
+    </div>
+    <div>
+      <h4>Visit Us</h4>
+      <p>Nandivargam,Nandyal, Andhra Pradesh, India<br>Email: info@vectaacademy.com<br>Phone: +91-9876543210</p>
+    </div>
+  </div>
+  <div class="copyright">© 2026 VECTA ACADEMY. Designed for Ambiguous Students.</div>
+</footer>
+
+<script>
+  function toggleMenu(){
+    document.getElementById('navMenu').classList.toggle('show');
+  }
+</script>
+
+</body>
+</html>
+

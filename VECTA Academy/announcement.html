@@ -1,0 +1,190 @@
+<!-- ============== FILE: announcement.html ============== -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Announcements | VECTA ACADEMY</title>
+<meta name="description" content="Latest announcements, events, and updates from VECTA ACADEMY. Stay informed about admissions, workshops, and campus news.">
+<meta name="keywords" content="announcements, VECTA ACADEMY news, admissions, events, workshops, updates, campus">
+<style>
+  :root{
+    --forest:#2d5016;
+    --forest-light:#4a7c2e;
+    --sage:#a8c09a;
+    --sage-light:#d4e4cc;
+    --earth:#8b6f47;
+    --earth-dark:#6b5535;
+    --terracotta:#c87941;
+    --cream:#faf7f0;
+    --cream-dark:#f0ead6;
+    --bark:#3d2817;
+    --moss:#556b2f;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;font-family:'Georgia','Times New Roman',serif}
+  body{background:var(--cream);color:var(--bark);line-height:1.7}
+  a{text-decoration:none;color:inherit}
+  header{background:var(--forest);color:var(--cream);padding:15px 30px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:100;box-shadow:0 2px 8px rgba(45,80,22,.3)}
+  .logo{font-size:1.4rem;font-weight:bold;color:var(--sage);letter-spacing:1px}
+  .logo span{color:var(--cream)}
+  nav ul{display:flex;list-style:none;gap:22px}
+  nav ul li a{font-weight:500;transition:color .2s;font-size:.95rem}
+  nav ul li a:hover{color:var(--sage)}
+  .menu-toggle{display:none;background:none;border:none;color:var(--cream);font-size:1.6rem;cursor:pointer}
+
+  .page-banner{position:relative;height:320px;overflow:hidden}
+  .page-banner img{width:100%;height:100%;object-fit:cover;filter:brightness(.55)}
+  .banner-overlay{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;color:var(--cream);padding:0 20px}
+  .banner-overlay h1{font-size:2.6rem;margin-bottom:10px;text-shadow:2px 2px 6px rgba(0,0,0,.5)}
+  .banner-overlay p{opacity:.95;font-size:1.1rem}
+
+  section{padding:60px 30px;max-width:1000px;margin:0 auto}
+  .section-title{text-align:center;margin-bottom:40px}
+  .section-title h2{font-size:2.2rem;color:var(--forest);margin-bottom:10px}
+  .section-title p{color:var(--earth);font-size:1.05rem}
+  .section-title::after{content:'';display:block;width:60px;height:3px;background:var(--terracotta);margin:12px auto 0}
+
+  .announcement-list{display:flex;flex-direction:column;gap:20px}
+  .announcement-card{background:var(--cream-dark);border-radius:12px;padding:28px;box-shadow:0 4px 12px rgba(61,40,23,.08);border-left:5px solid var(--terracotta);transition:transform .3s,box-shadow .3s}
+  .announcement-card:hover{transform:translateX(5px);box-shadow:0 8px 20px rgba(61,40,23,.12)}
+  .announcement-card.featured{border-left:5px solid var(--forest);background:linear-gradient(135deg,var(--cream-dark),var(--sage-light))}
+  .announcement-card .date{display:inline-block;background:var(--forest);color:var(--cream);padding:4px 12px;border-radius:20px;font-size:.8rem;font-weight:bold;margin-bottom:10px}
+  .announcement-card.featured .date{background:var(--terracotta)}
+  .announcement-card h3{color:var(--forest);margin-bottom:10px;font-size:1.3rem}
+  .announcement-card p{color:var(--earth-dark);margin-bottom:10px}
+  .announcement-card .tag{display:inline-block;background:var(--sage-light);color:var(--forest);padding:3px 10px;border-radius:12px;font-size:.78rem;margin-right:6px;font-weight:500}
+
+  .notice-board{background:var(--cream-dark);padding:30px;border-radius:12px;box-shadow:0 4px 12px rgba(61,40,23,.08);margin-top:35px;border-top:4px solid var(--forest-light)}
+  .notice-board h3{color:var(--forest);margin-bottom:18px;font-size:1.3rem}
+  .notice-board ul{list-style:none}
+  .notice-board ul li{padding:12px 0;border-bottom:1px dashed var(--sage);display:flex;gap:12px;align-items:flex-start}
+  .notice-board ul li:last-child{border-bottom:none}
+  .notice-board ul li .dot{width:10px;height:10px;background:var(--terracotta);border-radius:50%;flex-shrink:0;margin-top:8px}
+  .notice-board ul li strong{color:var(--forest)}
+  .notice-board ul li span{color:var(--earth-dark)}
+
+  footer{background:var(--bark);color:var(--cream-dark);padding:45px 30px 20px;text-align:center}
+  footer h4{color:var(--sage);margin-bottom:12px;font-size:1.15rem}
+  .footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:30px;max-width:1100px;margin:0 auto 25px;text-align:left}
+  .footer-grid p,.footer-grid a{color:var(--cream-dark);font-size:.92rem;line-height:1.9}
+  .footer-grid a:hover{color:var(--sage)}
+  .copyright{border-top:1px solid var(--earth-dark);padding-top:18px;font-size:.85rem;color:var(--sage)}
+
+  @media(max-width:768px){
+    .menu-toggle{display:block}
+    nav ul{display:none;flex-direction:column;position:absolute;top:60px;right:0;background:var(--forest);width:220px;padding:20px;gap:15px;box-shadow:-2px 2px 10px rgba(0,0,0,.3)}
+    nav ul.show{display:flex}
+    .banner-overlay h1{font-size:2rem}
+    .page-banner{height:260px}
+    section{padding:40px 20px}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <a href="index.html" class="logo">🌿 VECTA <span>ACADEMY</span></a>
+  <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+  <nav>
+    <ul id="navMenu">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="courses.html">Courses</a></li>
+      <li><a href="announcement.html">Announcement</a></li>
+      <li><a href="registration.html">Registration</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="page-banner">
+  <img src="https://image.qwenlm.ai/public_source/b63162a8-5914-4972-a6ab-262af50b616a/19d04a70a-9d13-453a-be4b-4b038d2c1dbc.png" alt="A rustic wooden bulletin board with handwritten notes, dried flowers and autumn leaves">
+  <div class="banner-overlay">
+    <h1> Announcements</h1>
+    <p>Stay updated with the latest news from our campus</p>
+  </div>
+</section>
+
+<section>
+  <div class="section-title">
+    <h2>Latest Updates</h2>
+    <p>Fresh news from the VECTA ACADEMY garden of knowledge</p>
+  </div>
+
+  <div class="announcement-list">
+    <div class="announcement-card featured">
+      <span class="date">🌟 July 01, 2026</span>
+      <h3>Admissions Open for July 2026 Batch</h3>
+      <p>We are thrilled to announce that admissions for the July 2026 batch are now open! Enroll in our most popular courses — Web Development, Data Science, and AI & ML — and begin your learning journey this month.</p>
+      <div><span class="tag">Admissions</span><span class="tag">New Batch</span><span class="tag">Limited Seats</span></div>
+    </div>
+
+    <div class="announcement-card">
+      <span class="date">June 28, 2026</span>
+      <h3>Free Workshop: Introduction to AI & Machine Learning</h3>
+      <p>Join our free 2-hour online workshop on July 10th, 2026, led by Dr. Gupta. Learn the fundamentals of AI, explore real-world applications, and get a head start on your AI journey. Registration is limited to 100 participants.</p>
+      <div><span class="tag">Workshop</span><span class="tag">Free</span><span class="tag">Online</span></div>
+    </div>
+
+    <div class="announcement-card">
+      <span class="date">June 25, 2026</span>
+      <h3>Summer Internship Program 2026</h3>
+      <p>Applications are now open for our 8-week Summer Internship Program. Work on real projects, earn a stipend, and receive a certificate of completion. Open to all enrolled students who have completed at least one course.</p>
+      <div><span class="tag">Internship</span><span class="tag">Paid</span></div>
+    </div>
+
+    <div class="announcement-card">
+      <span class="date">June 20, 2026</span>
+      <h3>New Course Launch: Cloud Computing with AWS</h3>
+      <p>Responding to student demand, we are launching a brand-new 3-month course on Cloud Computing with AWS. The course covers EC2, S3, Lambda, and deployment best practices. Early bird discount of 20% available until July 15.</p>
+      <div><span class="tag">New Course</span><span class="tag">Discount</span></div>
+    </div>
+
+    <div class="announcement-card">
+      <span class="date">June 15, 2026</span>
+      <h3>Annual Tech Fest "GreenCode 2026"</h3>
+      <p>Our annual tech fest GreenCode 2026 will be held on August 12-14 at our Nandivargam campus. Participate in hackathons, coding competitions, and design challenges. Prizes worth ₹50,000 up for grabs!</p>
+      <div><span class="tag">Event</span><span class="tag">Campus</span><span class="tag">Competition</span></div>
+    </div>
+  </div>
+
+  <div class="notice-board">
+    <h3>📌 Quick Notices</h3>
+    <ul>
+      <li><span class="dot"></span><div><strong>Library Hours Extended:</strong> Campus library now open until 9:00 PM on weekdays for exam preparation.</div></li>
+      <li><span class="dot"></span><div><strong>Placement Drive:</strong> TCS and Infosys will be visiting campus on July 20 for on-campus placements.</div></li>
+      <li><span class="dot"></span><div><strong>Scholarship Applications:</strong> Merit-based scholarships for the August batch open until July 10.</div></li>
+      <li><span class="dot"></span><div><strong>Campus Maintenance:</strong> Wi-Fi upgrade scheduled for July 5. Expect brief downtime between 2-4 AM.</div></li>
+    </ul>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-grid">
+    <div>
+      <h4>🌿 VECTA ACADEMY</h4>
+      <p>Learn technology - Feel the Nature</p>
+    </div>
+    <div>
+      <h4>Quick Links</h4>
+      <p><a href="courses.html">Courses</a> | <a href="announcement.html">Announcement</a> | <a href="registration.html">Register</a> | <a href="contact.html">Contact</a></p>
+    </div>
+    <div>
+      <h4>Visit Us</h4>
+      <p>Nandivargam,Nandyal, Andhra Pradesh, India<br>Email: info@vectaacademy.com<br>Phone: +91-9876543210</p>
+    </div>
+  </div>
+  <div class="copyright">© 2026 VECTA ACADEMY. Designed for Ambiguous Students.</div>
+</footer>
+
+<script>
+  function toggleMenu(){
+    document.getElementById('navMenu').classList.toggle('show');
+  }
+</script>
+
+</body>
+</html>
+```
+
+```html
